@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalpna App | Mega Fashion & Lifestyle Store</title>
+    
+       <!-- Icons (Font Awesome) ka Sahi Link -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+
+    <!-- CSS File Link -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">KALPNA<span>APP</span></a>
+        <nav>
+            <ul>
+                <li><a onclick="filterProducts('all')" class="active">All</a></li>
+                <li><a onclick="filterProducts('Girls')">Girls</a></li>
+                <li><a onclick="filterProducts('Boys')">Boys</a></li>
+                <li><a onclick="filterProducts('Kids')">Kids</a></li>
+                <li><a onclick="filterProducts('Jewelry')">Jewelry</a></li>
+                <li><a onclick="filterProducts('Shoes')">Shoes</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search dresses, shoes, jewelry...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="cart-btn" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Kalpna Mega Store</h1>
+        <p>Girls, Boys & Kids Fashion | Designer Dresses, Luxury Jewelry & Trendy Shoes</p>
+        <button onclick="document.getElementById('shopSection').scrollIntoView({behavior:'smooth'})">Explore Collection</button>
+    </section>
+
+    <!-- Filter Buttons -->
+    <div class="filters" id="shopSection">
+        <button class="filter-btn active" onclick="filterProducts('all', this)">All Items</button>
+        <button class="filter-btn" onclick="filterProducts('Girls', this)">Girls Fashion</button>
+        <button class="filter-btn" onclick="filterProducts('Boys', this)">Boys Wear</button>
+        <button class="filter-btn" onclick="filterProducts('Kids', this)">Kids Zone</button>
+        <button class="filter-btn" onclick="filterProducts('Jewelry', this)">Jewelry</button>
+        <button class="filter-btn" onclick="filterProducts('Shoes', this)">Shoes</button>
+    </div>
+
+    <!-- Products Container -->
+    <div class="container">
+        <div class="products-grid" id="productsGrid"></div>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Shopping Bag</h3>
+            <i class="fas fa-times" style="cursor:pointer" onclick="toggleCart()"></i>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-msg">Your bag is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total:</span>
+                <span>Rs. <span id="cartTotal">0</span></span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Button & Box -->
+    <button class="ai-toggle-btn" onclick="toggleAI()" title="Ask Kalpna AI">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <div class="ai-chatbox" id="aiChatbox">
+        <div class="ai-header">
+            <div>
+                <strong>Kalpna AI Assistant</strong>
+                <small>● Online | Powered by Smart AI</small>
+            </div>
+            <i class="fas fa-times" style="cursor:pointer" onclick="toggleAI()"></i>
+        </div>
+        <div class="ai-messages" id="aiMessages">
+            <div class="msg bot">Assalam o Alaikum! Main <b>Kalpna AI</b> hoon. Aapko Girls, Boys, Kids dresses, shoes ya jewelry mein kya chahiye? Agar koi masla ho to likhein: <i>"Owner se baat karni hai"</i>.</div>
+        </div>
+        <div class="ai-input">
+            <input type="text" id="aiUserInput" onkeypress="if(event.key==='Enter') sendAIMessage()" placeholder="Ask anything...">
+            <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Kalpna App. All Rights Reserved. | Built with HTML, CSS, JS & AI</p>
+    </footer>
+
+    <!-- JavaScript File Link -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
